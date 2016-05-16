@@ -3,7 +3,7 @@ class Accommodation
 
   property :id,     Serial
   property :name,   String, required: true
-  property :desc,   String
+  property :desc,   String, length: 500
   property :price,  Integer, required: true
 
 end
