@@ -1,5 +1,5 @@
 class User
-  include Datamapper::Resource
+  include DataMapper::Resource
   attr_reader :password
   attr_accessor :password_confirmation
 
@@ -10,8 +10,7 @@ class User
   property :email,              String, format: :email_address, required: true, unique: true
   property :password_digest,    Text
 
-  has n, :accomodations
-
+  # has n, :accomodations
 
   def password= password
     @password = password
