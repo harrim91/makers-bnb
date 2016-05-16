@@ -4,10 +4,4 @@ require 'sinatra/base'
 require_relative 'dm_setup'
 
 require_relative 'server'
-
-class MakersBNB < Sinatra::Base
-  get '/' do
-    'Hello MakersBNB!'
-  end
-
-end
+require_relative 'controllers/users'
