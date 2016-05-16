@@ -7,8 +7,9 @@ require './app/server'
 require './app/controllers/accommodations'
 
 class MakersBNB < Sinatra::Base
+
   get '/' do
-    'Hello MakersBNB!'
+    redirect '/accommodations'
   end
 
 end
