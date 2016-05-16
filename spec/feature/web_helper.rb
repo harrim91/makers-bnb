@@ -1,5 +1,5 @@
 def sign_up
-  visit   '/users/new'
+  visit  '/users/new'
   fill_in :name, with: 'Noah'
   fill_in :email, with: 'toplad@mate.com'
   fill_in :password, with: '1234'
