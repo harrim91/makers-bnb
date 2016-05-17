@@ -11,7 +11,7 @@ class User
   property :email,              String, format: :email_address, required: true, unique: true
   property :password_digest,    String, length: 80
 
-  # has n, :accomodations
+  has n, :accommodations
 
   def password= password
     @password = password
