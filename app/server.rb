@@ -1,8 +1,11 @@
 class MakersBNB < Sinatra::Base
   enable :sessions
-  # register Sinatra::partial
+  register Sinatra::Flash
+  register Sinatra::Partial
+  set :static, true
+  set :partial_template_engine, :erb
 
-  # enable :partial_underscores
+  enable :partial_underscores
 
   get '/' do
     erb :index
