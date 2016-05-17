@@ -11,4 +11,11 @@ class MakersBNB < Sinatra::Base
 
     redirect back
   end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.next[:notice] = ['Successfully logged out']
+    redirect back
+  end
+
 end
