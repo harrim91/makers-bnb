@@ -1,13 +1,8 @@
-ENV['RACK_ENV'] = 'development'
+ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
-require './app/dm_setup'
+require_relative 'dm_setup'
+## require 'sinatra/partial'
 
-require './app/server'
-
-class MakersBNB < Sinatra::Base
-  get '/' do
-    'Hello MakersBNB!'
-  end
-
-end
+require_relative 'server'
+require_relative 'controllers/users'
