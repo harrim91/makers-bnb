@@ -10,10 +10,10 @@ class MakersBNB < Sinatra::Base
   end
 
   post '/accommodations' do
-    acc = Accommodation.create name: params[:name],
+    accom = Accommodation.create name: params[:name],
                         desc: params[:desc],
                         price: params[:price]
-    if acc.save
+    if accom.save
       redirect '/accommodations'
     else
       redirect back
@@ -21,7 +21,7 @@ class MakersBNB < Sinatra::Base
   end
 
   get '/accommodations/:id' do
-    @acc = Accommodation.first(id: params[:id])
+    @accom = Accommodation.first(id: params[:id])
     erb :'accommodations/info'
   end
 end
