@@ -1,0 +1,7 @@
+<ul id='accommodations'>
+  <% @accommodations.each do |a| %>
+    <li>
+      <%= a.name %>  £<%= a.price %>
+    </li>
+  <% end %>
+</ul>
