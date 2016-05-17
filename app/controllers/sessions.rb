@@ -14,7 +14,7 @@ class MakersBNB < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.next[:notice] = ['Successfully logged out']
+    flash.next[:notice] = 'Successfully logged out'
     redirect back
   end
 
