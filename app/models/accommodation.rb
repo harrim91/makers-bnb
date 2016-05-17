@@ -7,4 +7,6 @@ class Accommodation
   property :desc,   String, length: 500
   property :price,  Integer, required: true, min: 1
 
+  belongs_to :user
+
 end

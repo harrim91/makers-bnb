@@ -1,5 +1,6 @@
 class User
   include DataMapper::Resource
+
   attr_reader :password
   attr_accessor :password_confirmation
 
@@ -10,7 +11,7 @@ class User
   property :email,              String, format: :email_address, required: true, unique: true
   property :password_digest,    String, length: 80
 
-  # has n, :accomodations
+  has n, :accommodations
 
   def password= password
     @password = password
@@ -18,7 +19,8 @@ class User
   end
 
   def self.authenticate(email, password)
-      user = first(email: email)
+    user = User.first(email: email)
+
     if user && BCrypt::Password.new(user.password_digest) == password
       user
     else

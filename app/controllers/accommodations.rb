@@ -11,8 +11,10 @@ class MakersBNB < Sinatra::Base
 
   post '/accommodations' do
     accommodation = Accommodation.create name: params[:name],
-                        desc: params[:desc],
-                        price: params[:price]
+                               desc: params[:desc],
+                              price: params[:price],
+                            user_id: current_user.id
+                            
     if accommodation.save
       redirect '/accommodations'
     else
