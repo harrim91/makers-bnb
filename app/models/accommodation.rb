@@ -1,5 +1,6 @@
 class Accommodation
   include DataMapper::Resource
+  attr_reader :name, :desc, :price
 
   property :id,     Serial
   property :name,   String, required: true

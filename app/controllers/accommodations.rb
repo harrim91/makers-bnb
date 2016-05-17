@@ -22,6 +22,7 @@ class MakersBNB < Sinatra::Base
 
   get '/accommodations/:id' do
     @acc = Accommodation.first(id: params[:id])
+    p @acc
     erb :'accommodations/info'
   end
 end

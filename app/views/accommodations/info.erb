@@ -1,6 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/script.js"></script>
 
-<%= @acc.name %>
-<br>
-<%= @acc.desc %>
-<br>
-£<%= @acc.price %>
+  </head>
+  <body>
+    <%= @acc.name %>
+    <br>
+    <%= @acc.desc %>
+    <br>
+    £<%= @acc.price %>
+    <br>
+
+
+    Select dates:
+     <p>Departing: <input type="text" id="departing"></p>
+     <p>Returning: <input type="text" id="returning"></p>
+  </body>
+</html>
