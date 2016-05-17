@@ -26,5 +26,10 @@ feature 'Create new accommodation' do
      expect{ create_new_accom(price: 'five') }.not_to change(Accommodation, :count)
      expect(current_path).to eq '/accommodations/new'
     end
+
+    scenario 'price cannot less than 1' do
+      expect{ create_new_accom(price: 0) }.not_to change(Accommodation, :count)
+      expect(current_path).to eq '/accommodations/new'
+    end
   end
 end
