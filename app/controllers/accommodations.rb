@@ -19,4 +19,9 @@ class MakersBNB < Sinatra::Base
       redirect back
     end
   end
+
+  get '/accommodations/:id' do
+    @acc = Accommodation.first(id: params[:id])
+    erb :'accommodations/info'
+  end
 end
