@@ -21,4 +21,5 @@ namespace :db do
     DataMapper.auto_migrate!
     puts 'Auto-migrate complete. Data destroyed.'
   end
+
 end

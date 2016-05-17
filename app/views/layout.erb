@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>MakersBNB</title>
+  </head>
+
+  <body>
+    <div align="left">
+      <img src='https://pbs.twimg.com/profile_images/3087236754/91e379b7e0006d38ee0526946a38a1ea_400x400.png' height="100" width="100">
+    </div>
+    <div align="center">
+        <% if current_user %>
+          Welcome, <%= current_user.name %>!
+        <form action="/sessions" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Log Out">
+        </form>
+        <% end %>
+        <%= partial :flash %>
+        <%= yield %>
+    </div>
+  </body>
+</html>
