@@ -8,7 +8,7 @@ class MakersBNB < Sinatra::Base
   enable :partial_underscores
 
   get '/' do
-    erb :index
+    redirect '/accommodations'
   end
 
   helpers do
