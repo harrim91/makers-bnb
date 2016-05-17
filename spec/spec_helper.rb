@@ -8,6 +8,8 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require 'tilt/erb'
+require './spec/features/accommodation/accommodation_helpers'
 
 require './app/app'
 require './app/dm_setup'

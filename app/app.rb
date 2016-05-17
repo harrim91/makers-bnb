@@ -4,8 +4,8 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
 
-require_relative 'dm_setup'
+require './app/dm_setup'
 
-
-require_relative 'server'
-require_relative 'controllers/users'
+require './app/server'
+require './app/controllers/users'
+require './app/controllers/accommodations'
