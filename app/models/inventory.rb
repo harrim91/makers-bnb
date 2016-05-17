@@ -1,8 +1,9 @@
-class Booking
+class Inventory
   include DataMapper::Resource
 
   property :id, Serial
-  property :accom_id, Integer
   property :date, Date
-  property :booked?, Boolean
+  property :booked, Boolean
+
+  belongs_to :user
 end

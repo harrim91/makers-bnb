@@ -5,7 +5,7 @@ require 'bcrypt'
 
 require './app/models/user'
 require './app/models/accommodation'
-require './app/models/booking'
+require './app/models/inventory'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/makers_bnb_#{ENV['RACK_ENV']}")
 DataMapper.finalize

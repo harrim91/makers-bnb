@@ -8,5 +8,6 @@ class Accommodation
   property :price,  Integer, required: true, min: 1
 
   belongs_to :user
+  has n, :inventories
 
 end
