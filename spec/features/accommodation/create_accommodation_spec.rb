@@ -43,5 +43,6 @@ feature 'Create new accommodation' do
       expect{ create_new_accom(price: 0) }.not_to change(Accommodation, :count)
       expect(current_path).to eq '/accommodations/new'
     end
+
   end
 end
