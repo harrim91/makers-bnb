@@ -24,8 +24,6 @@ class MakersBNB < Sinatra::Base
 
   get '/accommodations/:id' do
     @current_accommodation = Accommodation.first(id: params[:id])
-    # session[:accommodation_id] = @current_accommodation.id
-    p @current_accommodation
     erb :'accommodations/info'
   end
 end
