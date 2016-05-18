@@ -1,6 +1,11 @@
+<p>Accommodation name: <%= @current_accommodation.name %></p>
+<p>Brief Description: <%= @current_accommodation.desc %></p>
+<p>Price: £<%= @current_accommodation.price %></p>
 
-<%= @accom.name %>
-<br>
-<%= @accom.desc %>
-<br>
-£<%= @accom.price %>
+
+<p>Select dates:</p>
+<form action="/bookings" method="post">
+  Departing: <input type="text" id="departing">
+  Returning: <input type="text" id="returning">
+  <input type="submit" value="Request Booking">
+</form>

@@ -3,9 +3,9 @@
 </form>
 
 <ul id='accommodations'>
-  <% @accommodations.each do |acc| %>
+  <% @accommodations.each do |accommodation| %>
     <li>
-      <a href="accommodations/<%= acc.id %>"><%= acc.name %></a> £<%= acc.price %>
+      <a href="accommodations/<%= accommodation.id %>"><%= accommodation.name %></a> £<%= accommodation.price %>
     </li>
   <% end %>
 </ul>
