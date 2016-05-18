@@ -13,7 +13,7 @@ feature 'Create new accommodation' do
 
     scenario 'Saves new accommodation to database' do
       fill_in_new_accom_form
-      expect{ click_button 'Submit' }.to change(Accommodation, :count).by 1
+      expect{ click_button 'Create Accommodation' }.to change(Accommodation, :count).by 1
       expect(Accommodation.first.name).to eq 'Michael\'s House'
       expect(Accommodation.first.desc).to eq 'Cool place'
       expect(Accommodation.first.price).to eq 50.0
@@ -53,6 +53,12 @@ feature 'Create new accommodation' do
       scenario 'price cannot less than 1' do
         expect{ create_new_accom(price: 0) }.not_to change(Accommodation, :count)
         expect(current_path).to eq '/accommodations/new'
+      end
+    end
+    context 'When availability is managed' do
+
+      scenario 'a range of dates can be picked' do
+        expect{ create_new_accom }.to change(Inventory, :count).by(2)
       end
     end
   end

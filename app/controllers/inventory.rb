@@ -1,16 +1,16 @@
 class MakersBNB < Sinatra::Base
 
-  post '/bookings' do
-    booking = Booking.create
-    p booking
-    if booking.save
-      redirect '/requests'
-    else
-      redirect back
+  post '/inventories' do
+    accommodation = Accommodation.last
+    p accommodation
+    if accommodation.name == params[:name]
+      (params[:startdate]..params[:enddate]).each do |date|
+        Inventory.create(date: date,booked: false, accom_id: accommodation.id)
+      end
     end
   end
 
   get '/requests' do
-    @bookings = Booking.all
+    @inventories = Inventory.all
   end
 end

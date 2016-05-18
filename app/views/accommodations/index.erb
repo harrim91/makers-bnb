@@ -5,7 +5,7 @@
 <ul id='accommodations'>
   <% @accommodations.each do |accommodation| %>
     <li>
-      <a href="accommodations/<%= accommodation.id %>"><%= accommodation.name %></a> £<%= accommodation.price %>
+      <a href="/accommodations/<%= accommodation.id %>"><%= accommodation.name %></a> £<%= accommodation.price %>
     </li>
   <% end %>
 </ul>

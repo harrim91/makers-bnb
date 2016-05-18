@@ -1,12 +1,17 @@
 <% if current_user %>
-  <form action="/accommodations" method="post">
+  <form id="create_new_accommodation" action="/accommodations" method="post">
     <label for="name">Name:</label>
     <input type="text" name="name" required />
     <label for="desc">Description:</label>
     <textarea name="desc" rows="5" cols="50" maxlength="500"></textarea>
     <label for="price">Price per night: £</label>
     <input type="number" name="price" min="1" required />
-    <input type="submit" name="submit" value="Submit" />
+      <p>Select dates:</p>
+      <label for="startdate">Start Date: </label>
+      <input type="text" class="datepicker" name="startdate" id="startdate" placeholder="DD/MM/YYYY">
+      <label for="enddate">End Date: </label>
+      <input type="text" class="datepicker" name="enddate" id="enddate" placeholder="DD/MM/YYYY">
+      <input type="submit" name="submit" value="Create Accommodation" />
   </form>
 
 <% else %>

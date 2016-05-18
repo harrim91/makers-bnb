@@ -15,11 +15,8 @@ class MakersBNB < Sinatra::Base
                                         price: params[:price],
                                       user_id: current_user.id
 
-    if accommodation.save
-      redirect '/accommodations'
-    else
-      redirect back
-    end
+    accommodation.save ? redirect('/accommodations') : redirect(back)
+
   end
 
   get '/accommodations/:id' do

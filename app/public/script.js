@@ -1,4 +1,8 @@
 jQuery(document).ready( function ($) {
-  $('#departing').datepicker();
-  $('#returning').datepicker();
+  $('.datepicker').datepicker({dateFormat: 'dd/mm/yy'});
+
+  $('form#create_new_accommodation').submit(function(event){
+    event.preventDefault();
+    $.post("/inventories", $(this).serialize());
+  });
 });
