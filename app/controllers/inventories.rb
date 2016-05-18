@@ -5,7 +5,7 @@ class MakersBNB < Sinatra::Base
     end_date = DateTime.strptime(params[:end_date],"%d/%m/%Y")
     (start_date..end_date).each do |date|
       Inventory.create(date: date,
-                       booked: nil,
+                       booked: false,
                        accommodation_id: params[:accommodation_id])
     end
     flash.next[:notice] = 'Inventory sucessfully added'
