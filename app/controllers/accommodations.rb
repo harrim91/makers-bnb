@@ -1,12 +1,13 @@
 class MakersBNB < Sinatra::Base
 
-  get '/accommodations' do
-    @accommodations = Accommodation.all
-    erb :'accommodations/index'
-  end
 
   get '/accommodations/new' do
     erb :'accommodations/new'
+  end
+
+  get '/accommodations/:id' do
+    @accommodation = Accommodation.first(id: params[:id])
+    erb :'accommodations/index'
   end
 
   post '/accommodations' do
@@ -15,12 +16,8 @@ class MakersBNB < Sinatra::Base
                                         price: params[:price],
                                       user_id: current_user.id
 
-    accommodation.save ? redirect('/accommodations') : redirect(back)
+    accommodation.save ? redirect("accommodations/#{Accommodation.last.id}") : redirect(back)
 
   end
 
-  get '/accommodations/:id' do
-    @current_accommodation = Accommodation.first(id: params[:id])
-    erb :'accommodations/info'
-  end
 end
