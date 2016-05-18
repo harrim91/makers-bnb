@@ -1,5 +1,5 @@
-def sign_up(name: 'Noah',
-            email: 'toplad@mate.com',
+def sign_up(name: 'Michael',
+            email: 'michael@me.com',
             password: '1234',
             password_confirmation: '1234')
   visit  '/users/new'
