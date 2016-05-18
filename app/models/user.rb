@@ -12,7 +12,7 @@ class User
   property :email,              String, format: :email_address, required: true, unique: true
   property :password_digest,    String, length: 80
 
-  has n, :accommodations
+  has n, :accommodations, :requests
 
   def password= password
     @password = password

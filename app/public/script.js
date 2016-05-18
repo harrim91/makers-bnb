@@ -1,4 +1,3 @@
 jQuery(document).ready( function ($) {
-  $('#departing').datepicker();
-  $('#returning').datepicker();
+  $('.datepicker').datepicker({dateFormat: 'dd/mm/yy'});
 });

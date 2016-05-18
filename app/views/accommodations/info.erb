@@ -4,8 +4,9 @@
 
 
 <p>Select dates:</p>
-<form action="/bookings" method="post">
-  Departing: <input type="text" id="departing">
-  Returning: <input type="text" id="returning">
+<form action="/request" method="post">
+  Check-in: <input type="text" class="datepicker" placeholder="DD/MM/YYYY" id="check-in" name="check_in" >
+  Check-out: <input type="text" class="datepicker" placeholder="DD/MM/YYYY" id="check-out" name="check_out" >
+  <input type="hidden" name="accommodation_id" value="<%= @current_accommodation.id %>">
   <input type="submit" value="Request Booking">
 </form>
