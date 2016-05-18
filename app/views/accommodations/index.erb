@@ -1,7 +1,11 @@
+<form id="new_accom_button" action="/accommodations/new" method="get">
+  <input type="submit" name="new_accom" value="Post a new listing">
+</form>
+
 <ul id='accommodations'>
-  <% @accommodations.each do |a| %>
+  <% @accommodations.each do |acc| %>
     <li>
-      <%= a.name %>  £<%= a.price %>
+      <a href="accommodations/<%= acc.id %>"><%= acc.name %></a> £<%= acc.price %>
     </li>
   <% end %>
 </ul>
