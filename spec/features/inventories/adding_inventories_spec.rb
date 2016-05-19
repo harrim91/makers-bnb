@@ -33,7 +33,17 @@ feature 'adding inventories' do
       expect{ click_button('Add Dates') }.to change(Inventory, :count).by(2)
       expect(page).to have_content 'Inventory sucessfully added'
     end
+
+    scenario 'You can\'t add an end date prior to your start date' do
+      visit "accommodations/#{accommodation.id}"
+      fill_in :start_date, with: "11/12/2016"
+      fill_in :end_date, with: "10/12/2016"
+      expect{ click_button('Add Dates') }.to change(Inventory, :count).by(0)
+      expect(page).to have_content 'You can\'t add an end date prior to your start date'
+    end
   end
+
+
 
   context 'logged in as different user' do
     before do
