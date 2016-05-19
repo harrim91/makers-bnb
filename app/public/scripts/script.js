@@ -1,13 +1,10 @@
 $(document).ready(function () {
-    var daysToAdd = 1;
-
     $("#start-date").datepicker({
-
+        dateFormat: 'dd/mm/yy',
         onSelect: function (selected) {
             var dtMax = new Date(selected);
-            dtMax.setDate(dtMax.getDate() + daysToAdd);
             var dd = dtMax.getDate();
-            var mm = dtMax.getMonth() + 1;
+            var mm = dtMax.getMonth() + 2;
             var y = dtMax.getFullYear();
             var dtFormatted = mm + '/'+ dd + '/'+ y;
             $("#end-date").datepicker("option", "minDate", dtFormatted);
@@ -15,11 +12,11 @@ $(document).ready(function () {
     });
 
     $("#end-date").datepicker({
+        dateFormat: 'dd/mm/yy',
         onSelect: function (selected) {
             var dtMax = new Date(selected);
-            dtMax.setDate(dtMax.getDate() - daysToAdd);
             var dd = dtMax.getDate();
-            var mm = dtMax.getMonth() + 1;
+            var mm = dtMax.getMonth();
             var y = dtMax.getFullYear();
             var dtFormatted = mm + '/'+ dd + '/'+ y;
             $("#start-date").datepicker("option", "maxDate", dtFormatted);
