@@ -1,10 +1,6 @@
 class User
+
   include DataMapper::Resource
-
-  attr_reader :password
-  attr_accessor :password_confirmation
-
-  validates_confirmation_of :password
 
   property :id,                 Serial
   property :name,               String
@@ -12,6 +8,10 @@ class User
   property :password_digest,    String, length: 80
 
   has n, :accommodations
+  validates_confirmation_of :password
+
+  attr_reader :password
+  attr_accessor :password_confirmation
 
   def password= password
     @password = password

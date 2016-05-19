@@ -13,21 +13,24 @@ feature 'Create new accommodation' do
 
     scenario 'Saves new accommodation to database' do
       fill_in_new_accom_form
-      expect{ click_button 'Submit' }.to change(Accommodation, :count).by 1
+      expect{ click_button 'Create Accommodation' }.to change(Accommodation, :count).by 1
       expect(Accommodation.first.name).to eq 'Michael\'s House'
       expect(Accommodation.first.desc).to eq 'Cool place'
-      expect(Accommodation.first.price).to eq 50.0
+      expect(Accommodation.first.price).to eq 50
 
-      expect(current_path).to eq '/accommodations'
+      expect(current_path).to eq '/accommodations/1'
     end
 
     scenario 'should show up on the accommodations page' do
       create_new_accom
-      expect(page).to have_content "Michael's House £50"
+      expect(page).to have_content 'Michael\'s House'
+      expect(page).to have_content 'Cool place'
+      expect(page).to have_content '£50'
     end
 
     scenario 'should redirect to specific accommodation page when clicked on link' do
       create_new_accom
+      visit '/'
       click_on "Michael's House"
       expect(current_path).to eq "/accommodations/#{Accommodation.first.id}"
       expect(page).to have_content "Cool place"
