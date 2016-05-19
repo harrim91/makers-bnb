@@ -7,7 +7,7 @@ class User
   property :email,              String, format: :email_address, required: true, unique: true
   property :password_digest,    String, length: 80
 
-  has n, :accommodations
+  has n, :accommodations, :requests
   validates_confirmation_of :password
 
   attr_reader :password

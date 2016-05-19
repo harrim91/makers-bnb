@@ -13,6 +13,7 @@ gem 'sinatra-partial'
 
 group :test do
   gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'dotenv'
   gem 'database_cleaner'
   gem 'rspec'
