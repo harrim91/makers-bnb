@@ -2,6 +2,7 @@
 
 <% if current_user %>
   <p>Welcome, <%= current_user.name %>!</p>
+  <a href="/requests">Requests</a>
   <form id="logout" action="/sessions" method="post">
     <input type="hidden" name="_method" value="delete" />
     <input type="submit" value="Log Out" />

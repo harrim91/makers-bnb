@@ -9,4 +9,8 @@ class Accommodation
   belongs_to :user
   has n, :inventories, :requests
 
+  def self.requests (accommodation_id)
+    Request.all(accommodation_id: accommodation_id)
+  end
+
 end
