@@ -1,8 +1,30 @@
 class MakersBNB < Sinatra::Base
+<<<<<<< HEAD
   post '/request' do
     request = Request.create check_in: params[:check_in],
                           check_out: params[:check_out],
                           confirmed: false,
+=======
+
+  get '/requests' do
+    @sent_requests = Request.all(user_id: current_user.id)
+
+    user_accommodations = Accommodation.all(user_id: current_user.id)
+
+    @received_requests = []
+    user_accommodations.each do |accommodation|
+      @received_requests << Accommodation.requests(accommodation.id)
+    end
+    @received_requests.flatten!
+
+    erb :'requests/index'
+  end
+
+  post '/requests' do
+    request = Request.create check_in: params[:check_in],
+                          check_out: params[:check_out],
+                          confirmed: nil,
+>>>>>>> 39c5c5bbb9f0fe12647a6e51332801013d10d0f8
                             user_id: current_user.id,
                    accommodation_id: params[:accommodation_id]
 
