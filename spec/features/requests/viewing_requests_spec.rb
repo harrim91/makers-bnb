@@ -53,13 +53,40 @@ feature 'Viewing Requests' do
         expect(page).to have_content "Michael's House"
         expect(page).to have_content "#{start_date}"
         expect(page).to have_content "#{end_date}"
-        expect(page).to have_content "false"
       end
     end
   end
 
   context 'logged in as a host' do
+    before do
+      login email: user2.email, password: user2.password
+      visit "/accommodations/#{accommodation.id}"
+      within 'form#new-request' do
+        fill_in 'check_in', with: start_date
+        fill_in 'check_out', with: end_date
+        click_button 'Request Booking'
+      end
+      within 'header' do
+        click_button 'Log Out'
+      end
+      login email: user.email, password: user.password
+    end
 
+    scenario 'can view requests I have received' do
+      within 'header' do
+        click_on "Requests"
+      end
+
+      expect(page.status_code).to eq 200
+      expect(current_path).to eq '/requests'
+
+      within 'table#received-requests' do
+        expect(page).to have_content "Michael's House"
+        expect(page).to have_content "#{start_date}"
+        expect(page).to have_content "#{end_date}"
+        expect(page).to have_content "Dan"
+      end
+    end
   end
 
   context 'not logged in' do

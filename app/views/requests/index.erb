@@ -14,3 +14,23 @@
   </tr>
   <% end %>
 </table>
+
+<table id="received-requests">
+  <tr>
+    <th>Accommodation Name</th>
+    <th>Check-in</th>
+    <th>Check-out</th>
+    <th>Requested By</th>
+    <th>Confirmed?</th>
+  </tr>
+  <% @received_requests.each do |request| %>
+  <tr>
+    <td><%= request.accommodation.name %></td>
+    <td><%= request.check_in.strftime("%d/%m/%Y") %></td>
+    <td><%= request.check_out.strftime("%d/%m/%Y") %></td>
+    <td><%= request.user.name %></td>
+    <td><%= request.confirmed %></td>
+  </tr>
+  <% end %>
+</table>
+
