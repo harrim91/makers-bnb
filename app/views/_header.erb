@@ -1,0 +1,16 @@
+<a href="/"><img src="/images/makers_logo.png" height="100" width="100"></a>
+
+<% if current_user %>
+  <p>Welcome, <%= current_user.name %>!</p>
+  <form id="logout" action="/sessions" method="post">
+    <input type="hidden" name="_method" value="delete" />
+    <input type="submit" value="Log Out" />
+  </form>
+<% else %>
+  <form id="login" action="/sessions" method="post">
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="password" name="password" placeholder="Password" required />
+    <input type="submit" value="Log In">
+  </form>
+  <p>or <a href="/users/new">sign up</a></p>
+<% end %>
