@@ -4,8 +4,6 @@ class MakersBNB < Sinatra::Base
     @sent_requests = Request.all(user_id: current_user.id)
 
     user_accommodations = Accommodation.all(user_id: current_user.id)
-    # @received_requests = Request.all(accommodation_id: user_accommodation.id)
-    # p @received_requests
 
     @received_requests = []
     user_accommodations.each do |accommodation|
