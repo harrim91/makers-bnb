@@ -17,7 +17,7 @@ feature "Request accommodation" do
       click_button "Request Booking"
 
       expect(page.status_code).to eq(200)
-      expect(current_path).to eq "/accommodations"
+      expect(current_path).to eq "/"
 
       expect(page).to have_content "You have requested Michael's House"
       expect(page).to have_content "May 02, 2016 to May 04, 2016"

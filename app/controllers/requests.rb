@@ -11,7 +11,7 @@ class MakersBNB < Sinatra::Base
       flash.next[:notice] = "You have requested #{ current_accom.name}
                             from #{ request.check_in.strftime "%b %d, %Y" } to
                             #{ request.check_out.strftime "%b %d, %Y" }"
-      redirect '/accommodations'
+      redirect '/'
     else
      redirect back
     end

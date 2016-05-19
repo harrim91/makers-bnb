@@ -1,0 +1,11 @@
+<% if current_user %>
+  <p><a href="/accommodations/new">Create a new listing</a></p>
+<% end %>
+
+<ul id='accommodations'>
+  <% @accommodations.each do |accommodation| %>
+    <li>
+      <a href="/accommodations/<%= accommodation.id %>"><%= accommodation.name %></a> £<%= accommodation.price %>
+    </li>
+  <% end %>
+</ul>

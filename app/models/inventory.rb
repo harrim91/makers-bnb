@@ -5,5 +5,5 @@ class Inventory
   property :date, Date
   property :booked, Boolean
 
-  belongs_to :user
+  belongs_to :accommodation
 end
