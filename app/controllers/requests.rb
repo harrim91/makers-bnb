@@ -1,5 +1,11 @@
 class MakersBNB < Sinatra::Base
-  post '/request' do
+
+  get '/requests' do
+    @sent_requests = Request.all(user_id: current_user.id)
+    erb :'requests/index'
+  end
+
+  post '/requests' do
     request = Request.create check_in: params[:check_in],
                           check_out: params[:check_out],
                           confirmed: false,

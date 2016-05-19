@@ -16,7 +16,7 @@
       </form>
     <% else %>
       <p>Select dates:</p>
-      <form id="new-request" action="/request" method="post">
+      <form id="new-request" action="/requests" method="post">
         Check-in: <input type="text" class="datepicker" placeholder="DD/MM/YYYY" id="check-in" name="check_in" >
         Check-out: <input type="text" class="datepicker" placeholder="DD/MM/YYYY" id="check-out" name="check_out" >
         <input type="hidden" name="accommodation_id" value="<%= @accommodation.id %>">
