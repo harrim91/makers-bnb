@@ -44,24 +44,24 @@ feature 'Replying requests' do
   end
 
   scenario 'Accept a request' do
-    expect(current_path).to eq "/requests/1"
+    expect(current_path).to eq "/requests/2"
     click_button "Accept"
 
     expect(current_path).to eq "/requests"
 
-    within 'tr#request-1' do
+    within 'tr#request-2' do
       expect(page).to have_content "true"
     end
 
   end
 
   scenario 'Reject a request' do
-    expect(current_path).to eq "/requests/1"
+    expect(current_path).to eq "/requests/3"
     click_button "Reject"
 
     expect(current_path).to eq "/requests"
 
-    within 'tr#request-2' do
+    within 'tr#request-3' do
       expect(page).to have_content "false"
     end
   end
