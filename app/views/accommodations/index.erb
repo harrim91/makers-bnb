@@ -9,17 +9,19 @@
         <p>Add inventory dates:</p>
         <input type="hidden" name="accommodation_id" value="<%= @accommodation.id %>"/>
         <label for="start-date">Start Date: </label>
-        <input type="text" class="datepicker" name="start_date" id="start-date" placeholder="DD/MM/YYYY">
+        <input type="text" class="datepicker start-date" name="start_date" id="start-date" placeholder="DD/MM/YYYY">
         <label for="end-date">End Date: </label>
-        <input type="text" class="datepicker" name="end_date" id="end-date" placeholder="DD/MM/YYYY">
+        <input type="text" class="datepicker end-date" name="end_date" id="end-date" placeholder="DD/MM/YYYY">
         <input type="submit" id="submit_inventories" value="Add Dates"/>
       </form>
     <% else %>
       <p>Select dates:</p>
 
       <form id="new-request" action="/requests" method="post">
-        Check-in: <input type="text" class="datepicker" placeholder="DD/MM/YYYY" id="check-in" name="check_in" >
-        Check-out: <input type="text" class="datepicker" placeholder="DD/MM/YYYY" id="check-out" name="check_out" >
+        <label for="check-in">Check-in: </label>
+        <input type="text" class="datepicker start-date" placeholder="DD/MM/YYYY" id="check-in" name="check_in" >
+        <label for="check-out">Check-out: </label>
+        <input type="text" class="datepicker end-date" placeholder="DD/MM/YYYY" id="check-out" name="check_out" >
         <input type="hidden" name="accommodation_id" value="<%= @accommodation.id %>">
         <input type="submit" value="Request Booking">
       </form>
