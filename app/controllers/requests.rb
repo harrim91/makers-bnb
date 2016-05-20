@@ -1,10 +1,4 @@
 class MakersBNB < Sinatra::Base
-<<<<<<< HEAD
-  post '/request' do
-    request = Request.create check_in: params[:check_in],
-                          check_out: params[:check_out],
-                          confirmed: false,
-=======
 
   get '/requests' do
     @sent_requests = Request.all(user_id: current_user.id)
@@ -24,7 +18,6 @@ class MakersBNB < Sinatra::Base
     request = Request.create check_in: params[:check_in],
                           check_out: params[:check_out],
                           confirmed: nil,
->>>>>>> 39c5c5bbb9f0fe12647a6e51332801013d10d0f8
                             user_id: current_user.id,
                    accommodation_id: params[:accommodation_id]
 
