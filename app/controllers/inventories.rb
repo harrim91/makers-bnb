@@ -20,4 +20,12 @@ class MakersBNB < Sinatra::Base
     end
     redirect back
   end
+
+  put '/inventories' do
+    accommodation_inventories = Inventory.all(accommodation_id: params[:accommodation_id])
+    inventories = accommodation_inventories.all(:date.gte => params[:check_in], :date.lte => params[:check_out])
+    inventories.each do |inventory|
+      inventory.update(booked: true)
+    end
+  end
 end

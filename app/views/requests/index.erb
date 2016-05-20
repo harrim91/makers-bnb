@@ -1,35 +1,39 @@
-<table id="sent-requests">
-  <tr>
-    <th>Accommodation Name</th>
-    <th>Check-in</th>
-    <th>Check-out</th>
-    <th>Confirmed?</th>
-  </tr>
-  <% @sent_requests.each do |request| %>
-  <tr>
-    <td><%= request.accommodation.name %></td>
-    <td><%= request.check_in.strftime("%d/%m/%Y") %></td>
-    <td><%= request.check_out.strftime("%d/%m/%Y") %></td>
-    <td><%= request.confirmed %></td>
-  </tr>
-  <% end %>
-</table>
+<% if current_user %>
+  <table id="sent-requests">
+    <tr>
+      <th>Accommodation Name</th>
+      <th>Check-in</th>
+      <th>Check-out</th>
+      <th>Confirmed?</th>
+    </tr>
+    <% @sent_requests.each do |request| %>
+    <tr>
+      <td><%= request.accommodation.name %></td>
+      <td><%= request.check_in.strftime("%d/%m/%Y") %></td>
+      <td><%= request.check_out.strftime("%d/%m/%Y") %></td>
+      <td><%= request.confirmed %></td>
+    </tr>
+    <% end %>
+  </table>
 
-<table id="received-requests">
-  <tr>
-    <th>Accommodation Name</th>
-    <th>Check-in</th>
-    <th>Check-out</th>
-    <th>Requested By</th>
-    <th>Confirmed?</th>
-  </tr>
-  <% @received_requests.each do |request| %>
-  <tr>
-    <td><a href="/requests/<%= request.id %>"><%= request.accommodation.name %></a></td>
-    <td><%= request.check_in.strftime("%d/%m/%Y") %></td>
-    <td><%= request.check_out.strftime("%d/%m/%Y") %></td>
-    <td><%= request.user.name %></td>
-    <td><%= request.confirmed %></td>
-  </tr>
-  <% end %>
-</table>
+  <table id="received-requests">
+    <tr>
+      <th>Accommodation Name</th>
+      <th>Check-in</th>
+      <th>Check-out</th>
+      <th>Requested By</th>
+      <th>Confirmed?</th>
+    </tr>
+    <% @received_requests.each do |request| %>
+    <tr id="request-<%= request.id %>">
+      <td><a href="/requests/<%= request.id %>"><%= request.accommodation.name %></a></td>
+      <td><%= request.check_in.strftime("%d/%m/%Y") %></td>
+      <td><%= request.check_out.strftime("%d/%m/%Y") %></td>
+      <td><%= request.user.name %></td>
+      <td><%= request.confirmed %></td>
+    </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>Please log in</p>
+<% end %>
