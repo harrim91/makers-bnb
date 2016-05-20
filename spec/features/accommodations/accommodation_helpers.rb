@@ -7,6 +7,7 @@ def fill_in_new_accom_form name: 'Michael\'s House', desc: 'Cool place', price: 
 end
 
 def create_new_accom name: 'Michael\'s House', desc: 'Cool place', price: 50
+  visit "/accommodations/new"
   fill_in_new_accom_form name: name, desc: desc, price: price
   click_button 'Create Accommodation'
 end
@@ -39,4 +40,10 @@ def request_acc
   click_button "Log Out"
   sign_up_2
   click_on "Michael's House"
+end
+
+def sign_in email: 'michael@me.com', password: '123'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_on "Log In"
 end

@@ -96,5 +96,13 @@ $(document).ready(function() {
     return formattedDate;
   }
 
+  $('form#accept-request').submit(function() {
+    $.ajax({
+      type: 'PUT',
+      url: '/inventories',
+      data: $('form#accept-request').serialize()
+    })
+  });
+
 });
 
