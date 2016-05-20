@@ -1,0 +1,7 @@
+<%= @request.id %>
+
+<form action="/requests/<%= @request.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input type="hidden" name="confirmed" value="true">
+  <input type="submit" name="accept" value="Accept">
+</form>
