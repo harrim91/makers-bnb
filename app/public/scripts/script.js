@@ -53,13 +53,13 @@ $(document).ready(function() {
     dateFormat: 'dd/mm/yy',
     minDate: new Date,
     onSelect: setMinForEndDate,
-    beforeShowDay: showInventoryDates
+    beforeShowDay: showAvailableInventoryDates
   });
 
   $('#check-out').datepicker({
     dateFormat: 'dd/mm/yy',
     minDate: new Date,
-    beforeShowDay: showInventoryDates
+    beforeShowDay: showAvailableInventoryDates
   });
 
   function hideInventoryDates(date) {
@@ -70,7 +70,7 @@ $(document).ready(function() {
     }
   }
 
-  function showInventoryDates(date) {
+  function showAvailableInventoryDates(date) {
     if($.inArray($.datepicker.formatDate('dd/mm/yy', date), availableInventoryDates) > -1) {
       return [true];
     } else {
