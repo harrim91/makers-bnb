@@ -25,7 +25,7 @@
   </tr>
   <% @received_requests.each do |request| %>
   <tr>
-    <td><%= request.accommodation.name %></td>
+    <td><a href="/requests/<%= request.id %>"><%= request.accommodation.name %></a></td>
     <td><%= request.check_in.strftime("%d/%m/%Y") %></td>
     <td><%= request.check_out.strftime("%d/%m/%Y") %></td>
     <td><%= request.user.name %></td>
@@ -33,4 +33,3 @@
   </tr>
   <% end %>
 </table>
-

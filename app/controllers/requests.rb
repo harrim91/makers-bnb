@@ -14,6 +14,17 @@ class MakersBNB < Sinatra::Base
     erb :'requests/index'
   end
 
+  get '/requests/:id' do
+    @request = Request.first(id: params[:id])
+    erb :'requests/reply'
+  end
+
+  put '/requests/:id' do
+    request = Request.get(id: params[:id])
+    request.update( confirmed: params[:confirmed])
+    redirect '/requests'
+  end
+
   post '/requests' do
     request = Request.create check_in: params[:check_in],
                           check_out: params[:check_out],
