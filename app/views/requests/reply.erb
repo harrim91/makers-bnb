@@ -1,0 +1,22 @@
+<% if current_user %>
+
+  <form id="accept-request" action="/requests/<%= @current_request.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="check_in" value="<%= @current_request.check_in %>">
+    <input type="hidden" name="check_out" value="<%= @current_request.check_out %>">
+    <input type="hidden" name="accommodation_id" value="<%= @current_request.accommodation_id %>">
+    <input type="hidden" name="confirmed" value="true">
+    <input type="submit" name="accept" value="Accept">
+  </form>
+
+  <form id="reject-request" action="/requests/<%= @current_request.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="confirmed" value="false">
+    <input type="submit" name="reject" value="Reject">
+  </form>
+
+<% else %>
+
+  <p>Please log in</p>
+
+<% end %>

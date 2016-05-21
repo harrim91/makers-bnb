@@ -11,7 +11,7 @@ feature "Request accommodation" do
     before { login email: user.email, password: user.password }
 
     scenario "can request accommodation" do
-      request_acc
+      request_acc_signed_in
       fill_in 'check_in', with: '02/05/2016'
       fill_in 'check_out', with: '04/05/2016'
       click_button "Request Booking"

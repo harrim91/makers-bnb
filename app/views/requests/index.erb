@@ -1,4 +1,4 @@
-
+<% if current_user %>
 <div class="container text-center">
   <div class="row">
   <span class="title-font3 shadow--light pull-left">Requests Made</span><span class="title-font3 shadow--light pull-right">Requests Sent</span>
@@ -8,8 +8,8 @@
     <div class="col-sm-1 col-md-1 col-lg-1">
     </div>
   <div class="col-sm-5 col-md-5 col-lg-5">
+    <% @sent_requests.each do |request| %>
 <table id="sent-requests">
-  <% @sent_requests.each do |request| %>
   <tr>
     <th class="text-right">Accommodation &nbsp</th>
     <td><%= request.accommodation.name %></td>
@@ -30,11 +30,12 @@
 </table>
 </div>
 <div class="col-sm-5 col-md-5 col-lg-5">
-<table id="received-requests">
   <% @received_requests.each do |request| %>
+<table id="received-requests">
+<tr id="request-<%= request.id %>">
   <tr>
     <th class="text-right">Accommodation &nbsp</th>
-    <td><%= request.accommodation.name %></td>
+    <td><a href="/requests/<%= request.id %>"><%= request.accommodation.name %></a></td>
   </tr>
   <tr>
     <th class="text-right">Check-in &nbsp</th>
@@ -57,6 +58,14 @@
 <div class="row">
   <div class="col-sm-1 col-md-1 col-lg-1">
   </div>
+
+  <div class="row">
+    <% else %>
+  <p class="title-font3 shadow--light text-center">Please log in</p>
+  </div>
+
+  <% end %>
+
 </div>
 </div>
 </div>
