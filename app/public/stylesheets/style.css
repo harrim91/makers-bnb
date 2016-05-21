@@ -1,0 +1,112 @@
+body {
+  background-image: url('/images/empty-room.jpg');
+  background-size: cover;
+  align-items: center;
+}
+
+header {
+    width: 100%;
+    height: 50px;
+}
+
+ul {
+  list-style: none;
+  list-style-type: none;
+}
+
+.rightelements {
+    position: relative;;
+    margin: 15px 10px 5px 0px;
+}
+
+.btn-info {
+  padding: 4px 10px 4px 10px;
+  text-decoration: none;
+  background: #588C7E;
+  border: none;
+  position: relative;;
+  margin: 0px 15px 0px 5px;
+}
+
+.btn-loginout {
+  padding: 3px 15px 3px 15px;
+}
+
+
+.btn-info:hover {
+  background: #6EA399;
+}
+
+.signupbutton {
+  font-size: 12px;
+  padding: 5px 8.5px 5px 8.5px;
+
+}
+
+.title-font {
+  font-family: 'Indie Flower', cursive;
+  font-size: 42px;
+}
+
+.title-font2 {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 60px;
+  letter-spacing:0.2em;
+  text-align: center;
+  padding: 0px 0px 25px 0px;
+  color: white;
+}
+
+.title-font3 {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 30px;
+  letter-spacing:0.em;
+  text-align: center;
+  padding: 10px 70px 5px 70px;
+}
+
+.norm-txt {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 15px;
+}
+
+.loggedintxt {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 15px;
+  padding: 17px 20px 0px 0px;
+}
+
+.flashtxt {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 15px;
+}
+
+.absolute {
+  position: absolute;
+  right: 10px;
+  width: 90px;
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.shadow--light {
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+
+}
+
+.shadow--basic {
+  text-shadow: 0 1px 0 #ccc,
+                 0 2px 0 #c9c9c9,
+                 0 3px 0 #bbb,
+                 0 4px 0 #b9b9b9,
+                 0 5px 0 #aaa,
+                 0 6px 1px rgba(0,0,0,.1),
+                 0 0 5px rgba(0,0,0,.1),
+                 0 1px 3px rgba(0,0,0,.3),
+                 0 3px 5px rgba(0,0,0,.2),
+                 0 5px 10px rgba(0,0,0,.25),
+                 0 10px 10px rgba(0,0,0,.2),
+                 0 20px 20px rgba(0,0,0,.15);
+}

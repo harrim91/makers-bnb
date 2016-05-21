@@ -1,27 +1,46 @@
-<!-- <a href="/"><img src="/images/makers_logo.png" height="100" width="100"></a> -->
 
-<nav class="navbar navbar-dark bg-inverse navbar-full">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">
-        <img alt="Brand" src="/images/makers_logo.png" height="100" width="100">
-      </a>
-    </div>
-    <% if current_user %>
-      <h3>Welcome, <%= current_user.name %>!</h3>
-      <button class="btn btn-danger pull-xs-right"><a style="color: white" href="/requests">Requests</a></button>
-      <form id="logout" action="/sessions" method="post">
-        <input type="hidden" name="_method" value="delete" />
-        <input type="submit" class="btn btn-danger pull-xs-right" value="Log Out" />
-      </form>
+
+<% if current_user %>
+<div class="row">
+<div class="col-md-12 text-right">
+  <p class="pull-right loggedintxt">Logged in as <%= current_user.name %></p>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-12 text-right">
+    <p><form id="logout" action="/sessions" method="post">
+      <input type="hidden" name="_method" value="delete" />
+      <input type="submit" class="btn btn-info btn-loginout pull-right" value="Log Out" />
+    </form>
+  </p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 text-right">
+<p></p>
+<p><button class="btn btn-info"><a style="color: white; text-decoration: none" href="/requests">Requests</a></button></p>
+</div>
+</div>
+
+
+      </p>
     <% else %>
-      <form id="login" action="/sessions" style="float: left" method="post">
-        <input class="form-control-sm" type="email" name="email" placeholder="Email" required />
-        <input class="form-control-sm" type="password" name="password" placeholder="Password" required />
-        <input type="submit" class="btn btn-danger" value="Log In">
+    <div class="row">
+    <div class="col-md-12 text-right">
+      <form id="login" action="/sessions" method="post">
+        <p><input class="form-control-sm rightelements" type="email" name="email" size="25" placeholder="Email" required />
+        <input class="form-control-sm rightelements" type="password" name="password" size="20" placeholder="Password" required />
+        </p>
+        <input type="submit" class="btn btn-info btn-loginout" value="Log In">
+
+    <div class="row">
+    <div class="col-md-12 text-right">
       </form>
-      
-      <button class="btn btn-danger pull-xs-right" style="float: right"><a style="color: white" href="/users/new">Sign Up</a></button>
-    <% end %>
+    </div>
   </div>
-</nav>
+  <div class="row">
+  <div class="col-md-12 text-right">
+    <button class="btn btn-info" ><a style="color: white; text-decoration: none" href="/users/new">Sign Up</a></button>
+  </div>
+</div>
+    <% end %>

@@ -1,32 +1,54 @@
-<% if @accommodation %>
-  <p>Accommodation name: <%= @accommodation.name %></p>
-  <p>Brief Description: <%= @accommodation.desc %></p>
-  <p>Price: £<%= @accommodation.price %></p>
+<div class="container">
+<div class="row">
+  <div class="col-xs-2 col-sm-3 col-md-3">
 
-  <% if current_user %>
+  </div>
+
+  <div class="col-xs-8 col-sm-6 col-md-6">
+
+    <% if @accommodation %>
+    <!-- <p>Accommodation name: </p> -->
+    <h2><p><%= @accommodation.name %></p></h2>
+    <p><b>Description:</b></p>
+    <p><%= @accommodation.desc %></p>
+    <p class="pull-right"><b>£<%= @accommodation.price %> per night</b></p>
+
+    <% if current_user %>
     <% if @accommodation.user_id == current_user.id %>
-      <form id="new-inventories" action="/inventories" method="post">
-        <p>Add inventory dates:</p>
-        <input type="hidden" name="accommodation_id" value="<%= @accommodation.id %>"/>
-        <label for="start-date">Start Date: </label>
-        <input type="text" class="datepicker start-date" name="start_date" id="start-date" placeholder="DD/MM/YYYY">
-        <label for="end-date">End Date: </label>
-        <input type="text" class="datepicker end-date" name="end_date" id="end-date" placeholder="DD/MM/YYYY">
-        <input type="submit" id="submit_inventories" value="Add Dates"/>
-      </form>
+    <form id="new-inventories" action="/inventories" method="post">
+      <p>Add inventory dates:</p>
+      <input type="hidden" name="accommodation_id" value="<%= @accommodation.id %>"/>
+      <label for="start-date">Start Date: </label>
+      <input type="text" class="datepicker start-date" name="start_date" id="start-date" placeholder="DD/MM/YYYY">
+      <label for="end-date">End Date: </label>
+      <input type="text" class="datepicker end-date" name="end_date" id="end-date" placeholder="DD/MM/YYYY">
+      <input type="submit" id="submit_inventories" value="Add Dates"/>
+    </form>
     <% else %>
-      <p>Select dates:</p>
+    <p>Select dates:</p>
 
-      <form id="new-request" action="/requests" method="post">
-        <label for="check-in">Check-in: </label>
-        <input type="text" class="datepicker start-date" placeholder="DD/MM/YYYY" id="check-in" name="check_in" >
-        <label for="check-out">Check-out: </label>
-        <input type="text" class="datepicker end-date" placeholder="DD/MM/YYYY" id="check-out" name="check_out" >
-        <input type="hidden" name="accommodation_id" value="<%= @accommodation.id %>">
-        <input type="submit" value="Request Booking">
-      </form>
+    <form id="new-request" action="/requests" method="post">
+      <label for="check-in">Check-in: &nbsp </label>
+      <input type="text" class="datepicker start-date" placeholder="DD/MM/YYYY"  size="19" id="check-in" name="check_in" >
+      <p>
+      <label for="check-out">Check-out: </label>
+      <input type="text" class="datepicker end-date" placeholder="DD/MM/YYYY" size="19" id="check-out" name="check_out" >
+      </p>
+      <p>
+      <input type="hidden" name="accommodation_id" value="<%= @accommodation.id %>">
+      <input type="submit" value="Request Booking">
+    </p>
+    </form>
     <% end %>
-  <% end %>
-<% else %>
-  <p>Sorry, we can't find that accommodation</p>
-<% end %>
+    <% end %>
+    <% else %>
+    <p>Sorry, we can't find that accommodation</p>
+    <% end %>
+
+  </div>
+
+  <div class="col-xs-2 col-sm-3 col-md-3">
+
+  </div>
+</div>
+</div>

@@ -7,4 +7,10 @@ class Inventory
 
   belongs_to :accommodation
   validates_uniqueness_of :date, scope: :accommodation
+
+  def get_inventory
+
+  end
+
+
 end

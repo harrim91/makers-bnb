@@ -1,14 +1,14 @@
 <% if current_user %>
   <form id="create_new_accommodation" action="/accommodations" method="post">
-    <label for="name">Name:</label>
-    <input type="text" name="name" required />
-    <label for="desc">Description:</label>
-    <textarea name="desc" rows="5" cols="50" maxlength="500"></textarea>
-    <label for="price">Price per night: £</label>
-    <input type="number" name="price" min="1" required />
-    <input type="submit" name="submit" value="Create Accommodation" />
+    <p><label for="name"><input type="text" placeholder="Title" name="name" required /></label></p>
+    <p><label for="desc"><textarea name="desc" rows="5" cols="50" maxlength="500" placeholder="Brief Description"></textarea></label></p>
+    <p><label for="price">£</label>
+    <input type="number" placeholder="Price per night:" name="price" min="1" required />
+    </p>
+    <p><input type="submit" name="submit" value="Create Accommodation" /></p>
   </form>
 
 <% else %>
   <p>Please Log In</p>
 <% end %>
+</div>

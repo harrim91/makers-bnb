@@ -1,36 +1,62 @@
+
+<div class="container text-center">
+  <div class="row">
+  <span class="title-font3 shadow--light pull-left">Requests Made</span><span class="title-font3 shadow--light pull-right">Requests Sent</span>
+  </div>
+  <p></p>
+  <div class="row">
+    <div class="col-sm-1 col-md-1 col-lg-1">
+    </div>
+  <div class="col-sm-5 col-md-5 col-lg-5">
 <table id="sent-requests">
-  <tr>
-    <th>Accommodation Name</th>
-    <th>Check-in</th>
-    <th>Check-out</th>
-    <th>Confirmed?</th>
-  </tr>
   <% @sent_requests.each do |request| %>
   <tr>
+    <th class="text-right">Accommodation &nbsp</th>
     <td><%= request.accommodation.name %></td>
-    <td><%= request.check_in.strftime("%d/%m/%Y") %></td>
-    <td><%= request.check_out.strftime("%d/%m/%Y") %></td>
-    <td><%= request.confirmed %></td>
   </tr>
+  <tr>
+    <th class="text-right">Check-in &nbsp</th>
+    <td><%= request.check_in.strftime("%d/%m/%Y") %></td>
+  </tr>
+  <tr>
+    <th class="text-right">Check-out &nbsp</th>
+    <td><%= request.check_out.strftime("%d/%m/%Y") %></td>
+  </tr>
+   <tr>
+    <th class="text-right">Confirmed? &nbsp</th>
+    <td><%= request.confirmed %></td>
+    </tr>
   <% end %>
 </table>
-
+</div>
+<div class="col-sm-5 col-md-5 col-lg-5">
 <table id="received-requests">
-  <tr>
-    <th>Accommodation Name</th>
-    <th>Check-in</th>
-    <th>Check-out</th>
-    <th>Requested By</th>
-    <th>Confirmed?</th>
-  </tr>
   <% @received_requests.each do |request| %>
   <tr>
+    <th class="text-right">Accommodation &nbsp</th>
     <td><%= request.accommodation.name %></td>
+  </tr>
+  <tr>
+    <th class="text-right">Check-in &nbsp</th>
     <td><%= request.check_in.strftime("%d/%m/%Y") %></td>
+  </tr>
+  <tr>
+    <th class="text-right">Check-out &nbsp</th>
     <td><%= request.check_out.strftime("%d/%m/%Y") %></td>
+  </tr>
+  <tr>
+    <th class="text-right">Requested By &nbsp</th>
     <td><%= request.user.name %></td>
+  </tr>
+  <tr>
+    <th class="text-right">Confirmed? &nbsp</th>
     <td><%= request.confirmed %></td>
   </tr>
   <% end %>
 </table>
-
+<div class="row">
+  <div class="col-sm-1 col-md-1 col-lg-1">
+  </div>
+</div>
+</div>
+</div>
