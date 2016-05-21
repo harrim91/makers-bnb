@@ -11,33 +11,33 @@
     <h2><p><%= @accommodation.name %></p></h2>
     <p><b>Description:</b></p>
     <p><%= @accommodation.desc %></p>
-    <p class="pull-right"><b>£<%= @accommodation.price %> per night</b></p>
+    <p class="pull-right" style="font-size: 18px"><b>£<%= @accommodation.price %> per night</b></p>
 
     <% if current_user %>
     <% if @accommodation.user_id == current_user.id %>
+
     <form id="new-inventories" action="/inventories" method="post">
-      <p>Add inventory dates:</p>
       <input type="hidden" name="accommodation_id" value="<%= @accommodation.id %>"/>
+      <p><input type="submit" id="submit_inventories" class="btn btn-default btn-md" value="Add Dates"/></p>
+      <p><b>Add inventory dates:</b></p>
       <label for="start-date">Start Date: </label>
-      <input type="text" class="datepicker start-date" name="start_date" id="start-date" placeholder="DD/MM/YYYY">
+      <input type="text" class="datepicker" name="start_date" id="start-date" placeholder="DD/MM/YYYY">
       <label for="end-date">End Date: </label>
-      <input type="text" class="datepicker end-date" name="end_date" id="end-date" placeholder="DD/MM/YYYY">
+      <input type="text" class="datepicker" name="end_date" id="end-date" placeholder="DD/MM/YYYY">
       <p></p>
-      <p class="pull-right"><input type="submit" id="submit_inventories" class="btn btn-default btn-md" value="Add Dates"/></p>
     </form>
     <% else %>
-    <p>Select dates:</p>
+
 
     <form id="new-request" action="/requests" method="post">
-      <label for="check-in">Check-in: &nbsp </label>
-      <input type="text" class="datepicker start-date" placeholder="DD/MM/YYYY"  size="19" id="check-in" name="check_in" >
-      <p>
-      <label for="check-out">Check-out: </label>
-      <input type="text" class="datepicker end-date" placeholder="DD/MM/YYYY" size="19" id="check-out" name="check_out" >
-      </p>
-      <p>
       <input type="hidden" name="accommodation_id" value="<%= @accommodation.id %>">
-      <input type="submit" class="btn btn-default btn-md" value="Request Booking">
+      <p><input type="submit" class="btn btn-default btn-md text-center" value="Request Booking"></p>
+      <p><b>Select dates:</b></p>
+      <label for="check-in">Check-in: &nbsp </label>
+      <input type="text" class="datepicker" placeholder="DD/MM/YYYY"  size="19" id="check-in" name="check_in" >
+      <label for="check-out">Check-out: </label>
+      <input type="text" class="datepicker" placeholder="DD/MM/YYYY" size="19" id="check-out" name="check_out" >
+      <p>
     </p>
     </form>
     <% end %>
