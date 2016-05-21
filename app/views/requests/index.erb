@@ -1,13 +1,20 @@
 <% if current_user %>
 <div class="container text-center">
   <div class="row">
-  <span class="title-font3 shadow--light pull-left">Requests Made</span><span class="title-font3 shadow--light pull-right">Requests Sent</span>
+  <div class="col-sm-6 col-md-6 col-lg-6">
+  <span class="title-font3 shadow--light text-center">Requests Made</span>
+</div>
+  <div class="col-sm-6 col-md-6 col-lg-6">
+  <span class="title-font3 shadow--light text-center">Requests Sent  </span>
   </div>
+
+  </div>
+
   <p></p>
   <div class="row">
     <div class="col-sm-1 col-md-1 col-lg-1">
     </div>
-  <div class="col-sm-5 col-md-5 col-lg-5">
+  <div class="col-sm-4 col-md-4 col-lg-4">
     <% @sent_requests.each do |request| %>
 <table id="sent-requests">
   <tr>
@@ -29,10 +36,13 @@
   <% end %>
 </table>
 </div>
-<div class="col-sm-5 col-md-5 col-lg-5">
+
+  <div class="col-sm-1 col-md-1 col-lg-1">
+  </div>
+
+<div class="col-sm-4 col-md-4 col-lg-4">
   <% @received_requests.each do |request| %>
 <table id="received-requests">
-<tr id="request-<%= request.id %>">
   <tr>
     <th class="text-right">Accommodation &nbsp</th>
     <td><a href="/requests/<%= request.id %>"><%= request.accommodation.name %></a></td>
@@ -49,15 +59,18 @@
     <th class="text-right">Requested By &nbsp</th>
     <td><%= request.user.name %></td>
   </tr>
-  <tr>
+  <tr id="request-<%= request.id %>">
     <th class="text-right">Confirmed? &nbsp</th>
     <td><%= request.confirmed %></td>
   </tr>
   <% end %>
 </table>
-<div class="row">
-  <div class="col-sm-1 col-md-1 col-lg-1">
+</div>
+
+  <div class="col-sm-2 col-md-2 col-lg-2">
   </div>
+
+</div>
 
   <div class="row">
     <% else %>
