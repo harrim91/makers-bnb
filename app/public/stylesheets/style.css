@@ -33,6 +33,9 @@ ul {
   padding: 3px 15px 3px 15px;
 }
 
+.datepicker-label {
+  padding-top: 5px;
+}
 
 .btn-info:hover {
   background: #6EA399;
@@ -110,4 +113,10 @@ ul {
                  0 5px 10px rgba(0,0,0,.25),
                  0 10px 10px rgba(0,0,0,.2),
                  0 20px 20px rgba(0,0,0,.15);
+}
+
+.box {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 20px 30px 5px 15px;
+  border-radius: 10px;
 }
