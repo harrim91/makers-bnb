@@ -33,6 +33,9 @@
     <th class="text-right">Confirmed? &nbsp</th>
     <td><%= request.confirmed %></td>
     </tr>
+    <tr>
+      <td>&nbsp</td>
+    </tr>
   <% end %>
 </table>
 </div>
@@ -45,7 +48,7 @@
 <table id="received-requests">
   <tr>
     <th class="text-right">Accommodation &nbsp</th>
-    <td><a href="/requests/<%= request.id %>"><%= request.accommodation.name %></a></td>
+    <td><a href="/requests/<%= request.id %>" style="text-decoration: none"><%= request.accommodation.name %></a></td>
   </tr>
   <tr>
     <th class="text-right">Check-in &nbsp</th>
@@ -62,6 +65,9 @@
   <tr id="request-<%= request.id %>">
     <th class="text-right">Confirmed? &nbsp</th>
     <td><%= request.confirmed %></td>
+  </tr>
+  <tr>
+    <td>&nbsp</td>
   </tr>
   <% end %>
 </table>
