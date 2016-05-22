@@ -13,7 +13,7 @@ def create_new_accom name: 'Michael\'s House', desc: 'Cool place', price: 50
 end
 
 def sign_up name: 'Michael', email: 'michael@me.com', password: '123'
-  click_on "sign up"
+  click_on "Sign Up"
   within 'form#signup' do
     fill_in :name, with: name
     fill_in :email, with: email
@@ -24,7 +24,7 @@ def sign_up name: 'Michael', email: 'michael@me.com', password: '123'
 end
 
 def sign_up_2 name: 'Noah', email: 'noah@me.com', password: '456'
-  click_on "sign up"
+  click_on "Sign Up"
   within 'form#signup' do
     fill_in :name, with: name
     fill_in :email, with: email
@@ -36,6 +36,13 @@ end
 
 def request_acc
   sign_up
+  create_new_accom
+  click_button "Log Out"
+  sign_up_2
+  click_on "Michael's House"
+end
+
+def request_acc_signed_in
   create_new_accom
   click_button "Log Out"
   sign_up_2

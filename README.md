@@ -2,7 +2,7 @@
 
 Makers Academy Week 6 Group Project
 
-MVP of an AirBnB clone using Ruby, Sinatra, DataMapper, Javascript, JQuery (including AJAX) and test driven using RSpec/Capybara
+MVP of an AirBnB clone using Ruby, Sinatra, DataMapper, Javascript, JQuery (including AJAX), Bootstrap, and test driven using RSpec/Capybara
 
 [![Build Status](https://travis-ci.org/harrim91/makers-bnb.svg?branch=master)](https://travis-ci.org/harrim91/makers-bnb)
 [![Coverage Status](https://coveralls.io/repos/github/harrim91/makers-bnb/badge.svg?branch=master)](https://coveralls.io/github/harrim91/makers-bnb?branch=master)

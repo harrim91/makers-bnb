@@ -1,11 +1,11 @@
-<form id="signup" action="/users" method="post">
-  <label for="name">Name:</label>
-  <input type="text" name="name" value="<%= session[:name] %>">
-  <label for="email">Email:</label>
-  <input type="text" name="email" value="<%= session[:email] %>" required>
-  <label for="password">Password:</label>
-  <input type="password" name="password" required>
-  <label for="password_confirmation">Confirm Password:</label>
-  <input type="password" name="password_confirmation" required>
-  <input type="submit" value="Sign Up">
+<div class="container text-center">
+<form class="form-inline" id="signup" action="/users" method="post">
+
+  <p><label for="name"><input type="text" class="form-control form-control-lg" name="name" placeholder="Name" value="<%= session[:name] %>"></label></p>
+  <p><label for="email"><input type="text" class="form-control form-control-lg" name="email" placeholder="Email" value="<%= session[:email] %>" required></label></p>
+  <p><label for="password"><input type="password" class="form-control form-control-lg" placeholder="Password" name="password" required></label></p>
+  <p><label for="password_confirmation"><input type="password" class="form-control form-control-lg" placeholder="Confirm Password" name="password_confirmation" required></label></p>
+  <p><input type="submit" class="btn btn-default btn-md" value="Sign Up"></p>
+
 </form>
+</div>

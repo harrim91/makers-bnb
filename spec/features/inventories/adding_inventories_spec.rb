@@ -30,7 +30,7 @@ feature 'adding inventories' do
       visit "accommodations/#{accommodation.id}"
       fill_in :start_date, with: "10/12/2016"
       fill_in :end_date, with: "11/12/2016"
-      expect{ click_button('Add Dates') }.to change(Inventory, :count).by(2)
+      expect{ click_button('Add') }.to change(Inventory, :count).by(2)
       expect(page).to have_content 'Inventory sucessfully added'
     end
 

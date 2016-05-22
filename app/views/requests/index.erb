@@ -1,39 +1,82 @@
-<% if current_user %>
-  <table id="sent-requests">
-    <tr>
-      <th>Accommodation Name</th>
-      <th>Check-in</th>
-      <th>Check-out</th>
-      <th>Confirmed?</th>
-    </tr>
-    <% @sent_requests.each do |request| %>
-    <tr>
-      <td><%= request.accommodation.name %></td>
-      <td><%= request.check_in.strftime("%d/%m/%Y") %></td>
-      <td><%= request.check_out.strftime("%d/%m/%Y") %></td>
-      <td><%= request.confirmed %></td>
-    </tr>
-    <% end %>
-  </table>
+<div class="container text-center">
+  <% if current_user %>
 
-  <table id="received-requests">
-    <tr>
-      <th>Accommodation Name</th>
-      <th>Check-in</th>
-      <th>Check-out</th>
-      <th>Requested By</th>
-      <th>Confirmed?</th>
-    </tr>
-    <% @received_requests.each do |request| %>
-    <tr id="request-<%= request.id %>">
-      <td><a href="/requests/<%= request.id %>"><%= request.accommodation.name %></a></td>
-      <td><%= request.check_in.strftime("%d/%m/%Y") %></td>
-      <td><%= request.check_out.strftime("%d/%m/%Y") %></td>
-      <td><%= request.user.name %></td>
-      <td><%= request.confirmed %></td>
-    </tr>
-    <% end %>
-  </table>
-<% else %>
-  <p>Please log in</p>
-<% end %>
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <span class="title-font3 shadow--light text-center">Requests Made</span>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <span class="title-font3 shadow--light text-center">Requests Received</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-1 col-md-1 col-lg-1"></div>
+      <div class="col-sm-4 col-md-4 col-lg-4 box">
+        <% @sent_requests.each do |request| %>
+          <table id="sent-requests">
+            <tr>
+              <th class="text-right">Accommodation &nbsp</th>
+              <td><%= request.accommodation.name %></td>
+            </tr>
+            <tr>
+              <th class="text-right">Check-in &nbsp</th>
+              <td><%= request.check_in.strftime("%d/%m/%Y") %></td>
+            </tr>
+            <tr>
+              <th class="text-right">Check-out &nbsp</th>
+              <td><%= request.check_out.strftime("%d/%m/%Y") %></td>
+            </tr>
+             <tr>
+              <th class="text-right">Confirmed? &nbsp</th>
+              <td><%= request.confirmed %></td>
+              </tr>
+              <tr>
+                <td>&nbsp</td>
+              </tr>
+          </table>
+        <% end %>
+      </div>
+
+      <div class="col-sm-2 col-md-2 col-lg-2"></div>
+
+      <div class="col-sm-4 col-md-4 col-lg-4 box">
+        <% @received_requests.each do |request| %>
+          <table id="received-requests">
+            <tr>
+              <th class="text-right">Accommodation &nbsp</th>
+              <td><a href="/requests/<%= request.id %>" style="text-decoration: none"><%= request.accommodation.name %></a></td>
+            </tr>
+            <tr>
+              <th class="text-right">Check-in &nbsp</th>
+              <td><%= request.check_in.strftime("%d/%m/%Y") %></td>
+            </tr>
+            <tr>
+              <th class="text-right">Check-out &nbsp</th>
+              <td><%= request.check_out.strftime("%d/%m/%Y") %></td>
+            </tr>
+            <tr>
+              <th class="text-right">Requested By &nbsp</th>
+              <td><%= request.user.name %></td>
+            </tr>
+            <tr id="request-<%= request.id %>">
+              <th class="text-right">Confirmed? &nbsp</th>
+              <td><%= request.confirmed %></td>
+            </tr>
+            <tr>
+              <td>&nbsp</td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+
+      <div class="col-sm-2 col-md-2 col-lg-2"></div>
+
+    </div>
+
+  <% else %>
+    <div class="row">
+        <p class="title-font3 shadow--light text-center">Please log in</p>
+    </div>
+  <% end %>
+</div>

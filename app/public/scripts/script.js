@@ -38,27 +38,27 @@ $(document).ready(function() {
 
   $('#start-date').datepicker({
     dateFormat: 'dd/mm/yy',
-    minDate: new Date,
+    minDate: new Date(),
     onSelect: setMinForEndDate,
     beforeShowDay: hideInventoryDates
   });
 
   $('#end-date').datepicker({
     dateFormat: 'dd/mm/yy',
-    minDate: new Date,
+    minDate: new Date(),
     beforeShowDay: hideInventoryDates
   });
 
   $('#check-in').datepicker({
     dateFormat: 'dd/mm/yy',
-    minDate: new Date,
+    minDate: new Date(),
     onSelect: setMinForEndDate,
     beforeShowDay: showAvailableInventoryDates
   });
 
   $('#check-out').datepicker({
     dateFormat: 'dd/mm/yy',
-    minDate: new Date,
+    minDate: new Date(),
     beforeShowDay: showAvailableInventoryDates
   });
 
@@ -79,7 +79,7 @@ $(document).ready(function() {
   }
 
   function formatDate(date) {
-    var dateObj = new Date(date)
+    var dateObj = new Date(date);
     var day = dateObj.getDate();
     var month = dateObj.getMonth() + 1;
     var year = dateObj.getFullYear();
@@ -105,4 +105,3 @@ $(document).ready(function() {
   });
 
 });
-

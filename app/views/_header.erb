@@ -1,17 +1,46 @@
-<a href="/"><img src="/images/makers_logo.png" height="100" width="100"></a>
+
 
 <% if current_user %>
-  <p>Welcome, <%= current_user.name %>!</p>
-  <a href="/requests">Requests</a>
-  <form id="logout" action="/sessions" method="post">
-    <input type="hidden" name="_method" value="delete" />
-    <input type="submit" value="Log Out" />
-  </form>
-<% else %>
-  <form id="login" action="/sessions" method="post">
-    <input type="email" name="email" placeholder="Email" required />
-    <input type="password" name="password" placeholder="Password" required />
-    <input type="submit" value="Log In">
-  </form>
-  <p>or <a href="/users/new">sign up</a></p>
-<% end %>
+<div class="row">
+<div class="col-md-12 text-right">
+  <p class="pull-right loggedintxt"><a href="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>&nbsp Logged in as <%= current_user.name %></p>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-12 text-right">
+    <p><form id="logout" action="/sessions" method="post">
+      <input type="hidden" name="_method" value="delete" />
+      <input type="submit" class="btn btn-info btn-loginout pull-right" value="Log Out" />
+    </form>
+  </p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 text-right">
+<p></p>
+<p><a class="btn btn-info" style="color: white; text-decoration: none" href="/requests">Requests</a></p>
+</div>
+</div>
+
+
+      </p>
+    <% else %>
+    <div class="row">
+    <div class="col-md-12 text-right">
+      <form id="login" action="/sessions" method="post">
+        <p><input class="form-control-sm rightelements" type="email" name="email" size="25" placeholder="Email" required />
+        <input class="form-control-sm rightelements" type="password" name="password" size="20" placeholder="Password" required />
+        </p>
+        <input type="submit" class="btn btn-info btn-loginout" value="Log In">
+
+    <div class="row">
+    <div class="col-md-12 text-right">
+      </form>
+    </div>
+  </div>
+  <div class="row">
+  <div class="col-md-12 text-right">
+    <a class="btn btn-info" style="color: white; text-decoration: none" href="/users/new">Sign Up</a>
+  </div>
+</div>
+    <% end %>

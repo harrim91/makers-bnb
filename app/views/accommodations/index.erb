@@ -1,31 +1,54 @@
-<% if @accommodation %>
-  <p>Accommodation name: <%= @accommodation.name %></p>
-  <p>Brief Description: <%= @accommodation.desc %></p>
-  <p>Price: £<%= @accommodation.price %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-3"></div>
 
-  <% if current_user %>
-    <% if @accommodation.user_id == current_user.id %>
-      <form id="new-inventories" action="/inventories" method="post">
-        <p>Add inventory dates:</p>
-        <input type="hidden" name="accommodation_id" value="<%= @accommodation.id %>"/>
-        <label for="start-date">Start Date: </label>
-        <input type="text" class="datepicker start-date" name="start_date" id="start-date" placeholder="DD/MM/YYYY">
-        <label for="end-date">End Date: </label>
-        <input type="text" class="datepicker end-date" name="end_date" id="end-date" placeholder="DD/MM/YYYY">
-        <input type="submit" id="submit_inventories" value="Add Dates"/>
-      </form>
-    <% else %>
-      <p>Select dates:</p>
-      <form id="new-request" action="/requests" method="post">
-        <label for="check-in">Check-in: </label>
-        <input type="text" class="datepicker start-date" placeholder="DD/MM/YYYY" id="check-in" name="check_in" >
-        <label for="check-out">Check-out: </label>
-        <input type="text" class="datepicker end-date" placeholder="DD/MM/YYYY" id="check-out" name="check_out" >
-        <input type="hidden" name="accommodation_id" value="<%= @accommodation.id %>">
-        <input type="submit" value="Request Booking">
-      </form>
-    <% end %>
-  <% end %>
-<% else %>
-  <p>Sorry, we can't find that accommodation</p>
-<% end %>
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-6 box">
+
+      <% if @accommodation %>
+        <a href="/accommodations/new" style="text-decoration: none">Create a new listing</a>
+        <div class="row">
+          <h2 style="padding-left: 13px"><%= @accommodation.name %><span class="pull-right" style="font-size: 18px; padding-top: 10px"><b>£<%= @accommodation.price %> per night</b></span></h2>
+        </div>
+        <p><b>Description:</b></p>
+        <p><%= @accommodation.desc %></p>
+        <% unless current_user %>
+          <a class="btn btn-default btn-md pull-left" href="/" style="text-decoration: none">Back</a>
+        <% end %>
+        <% if current_user %>
+          <% if @accommodation.user_id == current_user.id %>
+
+            <form id="new-inventories" action="/inventories" method="post">
+              <input type="hidden" name="accommodation_id" value="<%= @accommodation.id %>"/>
+              <p><b>Add inventory dates:</b></p>
+              <label class="datepicker-label" for="start-date">Start Date:
+                <input type="text" class="datepicker start-date" name="start_date" id="start-date" size="15" placeholder="DD/MM/YYYY">
+              </label>
+              <label class="datepicker-label" for="end-date">End Date:
+                <input type="text" class="datepicker end-date" name="end_date" id="end-date" size="15" placeholder="DD/MM/YYYY">
+              </label>
+              <input type="submit" id="submit_inventories" class="btn btn-default btn-md pull-right" value="Add"/>
+            </form>
+
+          <% else %>
+
+            <form id="new-request" action="/requests" method="post">
+              <input type="hidden" name="accommodation_id" value="<%= @accommodation.id %>">
+              <p><b>Select dates:</b></p>
+              <label class="datepicker-label" for="check-in">Check-in:
+                <input type="text" class="datepicker start-date" placeholder="DD/MM/YYYY"  size="15" id="check-in" name="check_in" >
+              </label>
+              <label class="datepicker-label" for="check-out">Check-out:
+                <input type="text" class="datepicker end-date" placeholder="DD/MM/YYYY" size="15" id="check-out" name="check_out" />
+              </label>
+              <input type="submit" class="btn btn-default btn-md pull-right" value="Request Booking" />
+            </form>
+          <% end %>
+        <% end %>
+      <% else %>
+        <p>Sorry, we can't find that accommodation</p>
+      <% end %>
+    </div>
+
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-3"></div>
+  </div>
+</div>
