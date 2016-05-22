@@ -12,7 +12,9 @@
     <p><b>Description:</b></p>
     <p><%= @accommodation.desc %></p>
     <p class="pull-right" style="font-size: 18px"><b>£<%= @accommodation.price %> per night</b></p>
-
+      <% if !current_user %>
+        <a class="btn btn-default btn-md pull-left" href="/" style="text-decoration: none">Back</a>
+      <% end %>
     <% if current_user %>
     <% if @accommodation.user_id == current_user.id %>
 
