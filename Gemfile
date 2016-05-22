@@ -13,9 +13,10 @@ gem 'sinatra-partial'
 
 group :test do
   gem 'capybara'
-  gem 'selenium-webdriver'
+  gem 'coveralls', require: false
   gem 'dotenv'
   gem 'database_cleaner'
   gem 'rspec'
   gem 'rspec-sinatra'
+  gem 'selenium-webdriver'
 end
