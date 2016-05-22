@@ -6,11 +6,15 @@ require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 require 'capybara'
 require 'capybara/rspec'
-require 'rspec'
+require 'coveralls'
 require 'database_cleaner'
+require 'rspec'
 require 'tilt/erb'
+
 require './spec/features/accommodations/accommodation_helpers'
 require './spec/features/users/user_helpers'
+
+Coveralls.wear!
 
 Capybara.app = MakersBNB
 # include Capybara::DSL
